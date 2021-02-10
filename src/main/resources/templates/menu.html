@@ -7,9 +7,25 @@
 </head>
 <body>
 <h1>My Super Fancy Spa</h1>
+<h2>My Profile</h2>
+<p th:text="'Name: '+ ${name}">Default Name</p>
+<p th:text="'Skin Type: '+ ${skintype}">Default Skin Type</p>
+<p th:text="'Manipedi: '+ ${manipedi}">Default Manipedi</p>
 <div id = "clientProfile">
 </div>
 <div id = "servicesMenu">
+    <table th:each="facial : ${facials}">
+        <tr th:text="${facial}"></tr>
+    </table>
+
+
+    <div th:if="${manipedi == 'manicure'}">
+        <h3 th:replace="fragments :: manicureDescription"></h3>
+    </div>
+
+    <div th:if="${manipedi == 'pedicure'}">
+        <h3 th:replace="fragments :: pedicureDescription"></h3>
+    </div>
 </div>
 </body>
 </html>
